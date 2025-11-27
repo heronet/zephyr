@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2025 Siratul Islam
+
+menuconfig BIOMETRICS
+	bool "Biometrics Drivers"
+	help
+	  Enable biometric sensor driver support.
+
+if BIOMETRICS
+
+module = BIOMETRICS
+module-str = biometrics
+source "subsys/logging/Kconfig.template.log_config"
+
+config BIOMETRICS_INIT_PRIORITY
+	int "Biometrics init priority"
+	default 90
+	help
+	  Biometric device driver initialization priority.
+
+source "drivers/biometrics/Kconfig.as608"
+
+endif # BIOMETRICS
