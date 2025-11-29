@@ -18,6 +18,17 @@ config BIOMETRICS_INIT_PRIORITY
 	help
 	  Biometric device driver initialization priority.
 
+config BIOMETRICS_SHELL
+	bool "Biometrics Shell"
+	depends on SHELL
+	help
+	  Enable biometric sensor shell commands for testing.
+	  This provides commands for enrollment, matching, template
+	  management, and device information queries.
+
+# zephyr-keep-sorted-start
 source "drivers/biometrics/Kconfig.as608"
+source "drivers/biometrics/Kconfig.emul"
+# zephyr-keep-sorted-stop
 
 endif # BIOMETRICS
